@@ -27,6 +27,7 @@
   </head>
 
   <body>
+    <!-- Navbar -->
     <nav class="navbar navbar-dark navbar-expand-sm fixed-top">
       <div class="container">
         <button
@@ -37,24 +38,41 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
+
+        <!-- Brand Logo -->
         <a href="./index.html" class="navbar-brand me-auto"
           >Ristorante con Fusion</a
         >
+
+        <!-- Collapsible Navbar Items -->
         <div class="collapse navbar-collapse" id="Navbar">
           <ul class="navbar-nav me-auto">
             <li class="nav-item">
-              <a href="./index.html" class="nav-link"><span class="fa fa-home"></span> Home</a>
+              <a href="./index.html" class="nav-link"
+                ><span class="fa fa-home"></span> Home</a
+              >
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link active" aria-current="true"><span class="fa fa-info"></span> About</a>
+              <a href="#" class="nav-link active" aria-current="true"
+                ><span class="fa fa-info"></span> About</a
+              >
             </li>
-            <li class="nav-item"><a href="#" class="nav-link"><span class="fa fa-list"></span> Menu</a></li>
-            <li class="nav-item"><a href="./contactus.html" class="nav-link"><span class="fa fa-address-card"></span> Contact</a></li>
+            <li class="nav-item">
+              <a href="#" class="nav-link"
+                ><span class="fa fa-list"></span> Menu</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="./contactus.html" class="nav-link"
+                ><span class="fa fa-address-card"></span> Contact</a
+              >
+            </li>
           </ul>
         </div>
       </div>
     </nav>
 
+    <!-- Header -->
     <header class="jumbotron">
       <div class="container">
         <div class="row row-header">
@@ -73,20 +91,23 @@
 
     <div class="container">
       <div class="row">
+        <!-- Breadcrumb -->
         <div class="col-12">
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="./index.html">Home</a></li>
             <li class="breadcrumb-item active" aria-current="true">About Us</li>
           </ol>
         </div>
+
         <div class="col-12">
           <h3>About Us</h3>
           <hr />
         </div>
       </div>
 
+      <!-- Our History -->
       <div class="row row-content">
-        <div class="col-12 col-sm-6">
+        <div class="col-sm-6">
           <h2>Our History</h2>
           <p>
             Started in 2010, Ristorante con Fusion quickly established itself as
@@ -103,9 +124,47 @@
             cuisines in a pan.
           </p>
         </div>
-        <div class="col-12 col-sm"></div>
+
+        <!-- Card -->
+        <div class="col-sm">
+          <div class="card">
+            <h3 class="card-header bg-light text-black">Facts At a Glance</h3>
+            <div class="card-body">
+              <!-- Description List -->
+              <dl class="row">
+                <!-- Description Term -->
+                <dt class="col-6">Started</dt>
+                <!-- Description Details -->
+                <dd class="col-6">3 Feb. 2013</dd>
+
+                <dt class="col-6">Major Stake Holder</dt>
+                <dd class="col-6">HK Fine Foods Inc.</dd>
+
+                <dt class="col-6">Last Year's Turnover</dt>
+                <dd class="col-6">$1,250,375</dd>
+
+                <dt class="col-6">Employees</dt>
+                <dd class="col-6">40</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="card card-body bg-light">
+            <blockquote class="blockquote">
+              <p class="mb-0">You better cut the pizza in four pieces because
+                I'm not hungry enough to eat six.</p>
+            </blockquote>
+            <footer class="blockquote-footer">Yogi Berra,
+              <cite title="Source Title">The Wit and Wisdom of Yogi Berra,
+                P. Pepe, Diversion Books, 2014</cite>
+            </footer>
+          </div>
+        </div>
       </div>
 
+      <!-- Corporate Leadership -->
       <div class="row row-content">
         <div class="col-12">
           <h2>Corporate Leadership</h2>
@@ -153,11 +212,61 @@
           </p>
         </div>
       </div>
+
+      <div class="row row-content">
+        <div class="col-12 col-sm-9">
+          <h2>Facts &amp; Figures</h2>
+
+          <!-- Table -->
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead class="table-dark">
+                <tr>
+                  <th>&nbsp;</th>
+                  <th>2013</th>
+                  <th>2014</th>
+                  <th>2015</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <th>Employees</th>
+                  <td>15</td>
+                  <td>30</td>
+                  <td>40</td>
+                </tr>
+                <tr>
+                  <th>Guests Served</th>
+                  <td>15000</td>
+                  <td>45000</td>
+                  <td>100,000</td>
+                </tr>
+                <tr>
+                  <th>Special Events</th>
+                  <td>3</td>
+                  <td>20</td>
+                  <td>45</td>
+                </tr>
+                <tr>
+                  <th>Annual Turnovers</th>
+                  <td>$251,325</td>
+                  <td>$1,250,375</td>
+                  <td>~$3,000,000</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="col-12 col-sm-3"></div>
+      </div>
     </div>
 
+    <!-- Footer -->
     <footer class="footer">
       <div class="container">
         <div class="row">
+          <!-- Website Navigation Links -->
           <div class="col-4 offset-1 col-sm-2">
             <h5>Links</h5>
             <ul class="list-unstyled">
@@ -167,6 +276,8 @@
               <li><a href="./contactus.html">Contact</a></li>
             </ul>
           </div>
+
+          <!-- Address Info -->
           <div class="col-7 col-sm-5">
             <h5>Our Address</h5>
             <address>
@@ -175,20 +286,47 @@
               HONG KONG<br />
               <i class="fa fa-phone"></i>: +852 1234 5678<br />
               <i class="fa fa-fax"></i>: +852 8765 4321<br />
-              <i class="fa fa-envelope"></i>: <a href="mailto:confusion@food.net">confusion@food.net</a>
+              <i class="fa fa-envelope"></i>:
+              <a href="mailto:confusion@food.net">confusion@food.net</a>
             </address>
           </div>
+
+          <!-- Social Media -->
           <div class="col-12 col-sm-4 align-self-center">
             <div class="text-center">
-              <a class="btn btn-social-icon btn-google" href="http://google.com/+"><i class="fa fa-google-plus"></i></a>
-              <a class="btn btn-social-icon btn-facebook" href="http://www.facebook.com/profile.php?id="><i class="fa fa-facebook"></i></a>
-              <a class="btn btn-social-icon btn-linkedin" href="http://www.linkedin.com/in/"><i class="fa fa-linkedin"></i></a>
-              <a class="btn btn-social-icon btn-twitter" href="http://twitter.com/"><i class="fa fa-twitter"></i></a>
-              <a class="btn btn-social-icon btn-google" href="http://youtube.com/"><i class="fa fa-youtube"></i></a>
-              <a class="btn btn-social-icon btn-linkedin" href="mailto:"><i class="fa fa-envelope"></i></a>
+              <a
+                class="btn btn-social-icon btn-google"
+                href="http://google.com/+"
+                ><i class="fa fa-google-plus"></i
+              ></a>
+              <a
+                class="btn btn-social-icon btn-facebook"
+                href="http://www.facebook.com/profile.php?id="
+                ><i class="fa fa-facebook"></i
+              ></a>
+              <a
+                class="btn btn-social-icon btn-linkedin"
+                href="http://www.linkedin.com/in/"
+                ><i class="fa fa-linkedin"></i
+              ></a>
+              <a
+                class="btn btn-social-icon btn-twitter"
+                href="http://twitter.com/"
+                ><i class="fa fa-twitter"></i
+              ></a>
+              <a
+                class="btn btn-social-icon btn-google"
+                href="http://youtube.com/"
+                ><i class="fa fa-youtube"></i
+              ></a>
+              <a class="btn btn-social-icon btn-linkedin" href="mailto:"
+                ><i class="fa fa-envelope"></i
+              ></a>
             </div>
           </div>
         </div>
+
+        <!-- Copyright -->
         <div class="row justify-content-center">
           <div class="col-auto">
             <p>© Copyright 2018 Ristorante Con Fusion</p>
@@ -197,6 +335,7 @@
       </div>
     </footer>
 
+    <!-- JS Scripts -->
     <script src="node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   </body>
