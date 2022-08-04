@@ -36,6 +36,19 @@ body {
     padding: 10px;
 }
 
+.accordion-item {
+    --bs-accordion-active-color: none;
+}
+
+.accordion-header button {
+    font-size: 1.75rem;
+    font-weight: 500;
+}
+
+.accordion-header button span{
+    font-size: 0.7em;
+}
+
 
 .footer {
     background-color: #d1c4e9;
