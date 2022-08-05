@@ -78,9 +78,11 @@
         <div class="modal-content">
           <div class="modal-header">
             <h4 class="modal-title">Login</h4>
-            <button class="close" type="button" data-bs-dismiss="modal">
-              &times;
-            </button>
+            <button
+              class="btn-close"
+              type="button"
+              data-bs-dismiss="modal"
+            ></button>
           </div>
           <div class="modal-body">
             <form action="">
@@ -128,6 +130,145 @@
       </div>
     </div>
 
+    <!-- Reserve Table Modal -->
+    <div class="modal fade" role="dialog" id="reserveTableModal">
+      <div class="modal-dialog modal-lg" role="content">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Reserve a Table</h4>
+            <button
+              class="btn-close"
+              type="button"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form action="" id="reserveForm">
+              <!-- Number of guests -->
+              <div class="form-group row">
+                <label for="" class="col-form-label col-md-2"
+                  >Number of Guests</label
+                >
+                <!-- Radio btn options -->
+                <div class="radios col-md-10">
+                  <div class="form-check d-inline-block">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="guestOption"
+                      id="1guest"
+                      value="option1"
+                    />
+                    <label class="form-check-label" for="1guest">1</label>
+                  </div>
+                  <div class="form-check d-inline-block">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="guestOption"
+                      id="2guest"
+                      value="option2"
+                    />
+                    <label class="form-check-label" for="2guest">2</label>
+                  </div>
+                  <div class="form-check d-inline-block">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="guestOption"
+                      id="3guest"
+                      value="option3"
+                    />
+                    <label class="form-check-label" for="3guest">3</label>
+                  </div>
+                  <div class="form-check d-inline-block">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="guestOption"
+                      id="4guest"
+                      value="option4"
+                    />
+                    <label class="form-check-label" for="4guest">4</label>
+                  </div>
+                  <div class="form-check d-inline-block">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="guestOption"
+                      id="5guest"
+                      value="option5"
+                    />
+                    <label class="form-check-label" for="5guest">5</label>
+                  </div>
+                  <div class="form-check d-inline-block">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="guestOption"
+                      id="6guest"
+                      value="option6"
+                    />
+                    <label class="form-check-label" for="6guest">6</label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ?Smoking Section -->
+              <div class="form-group row mb-2">
+                <label for="" class="col-form-label col-md-2">Section</label>
+                <div class="btn-group col-md-5 ms-0" role="group">
+                  <div class="form-check d-inline-block ps-0">
+                    <input type="radio" class="btn-check" name="sectionOption" id="smk" autocomplete="off" checked data-bs-toggle="input">
+                    <label class="btn btn-success" for="smk">Non-Smoking</label>
+                  </div>
+
+                  <div class="form-check d-inline-block ps-0">
+                    <input type="radio" class="btn-check" name="sectionOption" id="nsmk" autocomplete="off" data-bs-toggle="input">
+                    <label class="btn btn-danger" for="nsmk">Smoking</label>
+                  </div>
+                  
+                </div>
+              </div>
+
+              <!-- Date and time -->
+              <div class="form-group row">
+                <label for="" class="col-form-label col-md-2"
+                  >Date and Time</label
+                >
+                <div class="col-md-3">
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="date"
+                    name="date"
+                    placeholder="Date"
+                  />
+                </div>
+                <div class="col-md-3">
+                  <input
+                    type="time"
+                    class="form-control"
+                    id="name"
+                    name="name"
+                    placeholder="Time"
+                  />
+                </div>
+              </div>
+
+              <!-- Reserve button -->
+              <div class="form-group row">
+                <div class="btn-group col-md-2 mt-4 offset-md-9">
+                  <button class="btn btn-secondary me-1" type="button" data-bs-dismiss="modal">Cancel</button>
+                  <button class="btn btn-primary" type="submit">Reserve</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <header class="jumbotron">
       <div class="container">
         <div class="row row-header">
@@ -144,14 +285,19 @@
           </div>
           <div class="d-grid col-12 col-sm-3 align-self-center">
             <!-- Button with a tooltip -->
+            <button 
+            class="btn btn-sm btn-warning p-0"
+            data-bs-toggle="tooltip"
+            data-bs-title="Or Call us at +852 12345678"
+            data-bs-placement="bottom">
             <a
+              class="btn w-100"
               href="#reserveForm"
-              class="btn btn-sm btn-warning"
-              data-bs-toggle="tooltip"
-              data-bs-title="Or Call us at +852 12345678"
-              data-bs-placement="bottom"
-              >Reserve Table</a
-            >
+              data-bs-toggle="modal"
+              data-bs-target="#reserveTableModal"
+              >Reserve Table</a>
+            </button>
+            
           </div>
         </div>
       </div>
@@ -164,9 +310,26 @@
           <div class="carousel slide" id="mycarousel" data-bs-ride="carousel">
             <!-- Indicators -->
             <div class="carousel-indicators">
-              <button type="button" data-bs-target="#mycarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-              <button type="button" data-bs-target="#mycarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-              <button type="button" data-bs-target="#mycarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              <button
+                type="button"
+                data-bs-target="#mycarousel"
+                data-bs-slide-to="0"
+                class="active"
+                aria-current="true"
+                aria-label="Slide 1"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#mycarousel"
+                data-bs-slide-to="1"
+                aria-label="Slide 2"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#mycarousel"
+                data-bs-slide-to="2"
+                aria-label="Slide 3"
+              ></button>
             </div>
             <div class="carousel-inner" role="listbox">
               <!-- Carousel item 1-->
@@ -231,10 +394,20 @@
               </div>
             </div>
             <!-- Controls -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#mycarousel" data-bs-slide="prev">
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#mycarousel"
+              data-bs-slide="prev"
+            >
               <span class="carousel-control-prev-icon"></span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#mycarousel" data-bs-slide="next">
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#mycarousel"
+              data-bs-slide="next"
+            >
               <span class="carousel-control-next-icon"></span>
             </button>
           </div>
@@ -327,21 +500,24 @@
       </div>
     </div>
 
-    <div class="container">
+
+    <!-- Old Reserve Table Form - Card -->
+    
+    <!-- <div class="container">
       <div class="row row-content justify-content-center">
         <div class="col-12 col-sm-8">
-          <!-- Card -->
+           Card 
           <div class="card">
             <h3 class="card-header bg-warning text-white">Reserve a Table</h3>
             <div class="card-body">
-              <!-- Form -->
+               Form 
               <form action="" id="reserveForm">
-                <!-- Number of guests -->
+                Number of guests 
                 <div class="form-group row">
                   <label for="" class="col-form-label col-md-2"
                     >Number of Guests</label
                   >
-                  <!-- Radio btn options -->
+                   Radio btn options
                   <div class="radios col-md-10">
                     <div class="form-check d-inline-block">
                       <input
@@ -406,7 +582,7 @@
                   </div>
                 </div>
 
-                <!-- Date and time -->
+                 Date and time 
                 <div class="form-group row">
                   <label for="" class="col-form-label col-md-2"
                     >Date and Time</label
@@ -431,7 +607,7 @@
                   </div>
                 </div>
 
-                <!-- Reserve button -->
+                 Reserve button 
                 <div class="form-group row">
                   <div class="col-md-2 offset-md-2 mt-4">
                     <button class="btn btn-primary">Reserve</button>
@@ -442,7 +618,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div>  -->
 
     <footer class="footer">
       <div class="container">
