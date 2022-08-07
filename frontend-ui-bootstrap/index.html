@@ -331,6 +331,17 @@
                 aria-label="Slide 3"
               ></button>
             </div>
+
+            <!-- Pause/Play Controls -->
+            <div class="btn-group" id="carouselButtons">
+              <button class="btn btn-danger btn-small" id="carouselPause">
+                <span class="fa fa-pause"></span>
+              </button>
+              <button class="btn btn-danger btn-small" id="carouselPlay">
+                <span class="fa fa-play"></span>
+              </button>
+            </div>
+
             <div class="carousel-inner" role="listbox">
               <!-- Carousel item 1-->
               <div class="carousel-item active">
@@ -697,6 +708,28 @@
       const tooltipList = [...tooltipTriggerList].map(
         (tooltip) => new bootstrap.Tooltip(tooltip)
       );
+    </script>
+
+    <!-- Script for Carousel resume/play buttons -->
+    <script>
+      //set carousel interval
+      const myCarousel = document.getElementById('mycarousel');
+      const carousel = new bootstrap.Carousel(myCarousel, {
+        interval: 2000,
+        pause: false
+      });
+
+      //set carousel pause button
+      document.getElementById('carouselPause').addEventListener("click", event => {
+        carousel.pause();
+        console.log("carousel paused");
+      });
+
+      //set carousel play button
+      document.getElementById('carouselPlay').addEventListener('click', event => {
+        carousel.cycle();
+        console.log("carousel resumed");
+      });
     </script>
   </body>
 </html>
