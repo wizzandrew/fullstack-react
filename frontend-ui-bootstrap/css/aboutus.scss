@@ -1,0 +1,69 @@
+$lt-grey: #ddd;
+$background-dark: #512DA8;
+$background-light: #9575CD;
+$background-pale: #D1C4E9;
+
+
+// Zero-margin Mixin
+@mixin zero-margin ($pad-up-dn: 0px, $pad-left-right: 0px) {
+    margin: 0px auto;
+    padding: $pad-up-dn $pad-left-right;
+}
+
+body{
+    padding-top: 50px;
+    z-index:0;
+}
+
+.navbar-dark {
+    background-color: $background-dark;
+}
+
+.jumbotron {
+    @include zero-margin(70px,30px);
+    border-radius: 3px;
+    background: $background-light ;
+    color:floralwhite;
+}
+
+.row-header{
+    @include zero-margin();
+}
+
+.row-content {
+    @include zero-margin(50px,0px);
+    border-bottom: 1px ridge;
+    min-height:300px;
+
+    small {
+        font-size: 0.7em;
+        font-weight: 500;
+    }
+}
+
+.tab-content {
+    border-left: 1px solid $lt-grey;
+    border-right: 1px solid $lt-grey;
+    border-bottom: 1px solid $lt-grey;
+    padding: 10px;
+}
+
+.accordion {
+    .accordion-item {
+        --bs-accordion-active-color: none;
+
+        .accordion-header button {
+            font-size: 1.75rem;
+            font-weight: 500;
+
+            span{
+                font-size: 0.7em;
+            }
+        }
+    }
+}
+
+.footer{
+    background-color: $background-pale;
+    @include zero-margin(20px, 0px);
+}

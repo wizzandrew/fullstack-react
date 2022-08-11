@@ -1,57 +1,45 @@
 body {
-    padding-top: 50px;
-    z-index: 0;
-}
+  padding-top: 50px;
+  z-index: 0; }
 
 .navbar-dark {
-    background: #512da8;
-}
+  background-color: #512DA8; }
 
 .jumbotron {
-    margin: 0px auto;
-    padding: 70px 30px 70px 30px;
-    border-radius: 3px;
-    background: #9575cd;
-    color: floralwhite;
-}
+  margin: 0px auto;
+  padding: 70px 30px;
+  border-radius: 3px;
+  background: #9575CD;
+  color: floralwhite; }
 
+.row-header {
+  margin: 0px auto;
+  padding: 0px 0px; }
 
 .row-content {
-    margin: 0px auto;
-    padding: 50px 0px 50px 0px;
-    border-bottom: 1px ridge;
-    min-height: 400px;
-}
-
-
-.row-content small {
+  margin: 0px auto;
+  padding: 50px 0px;
+  border-bottom: 1px ridge;
+  min-height: 300px; }
+  .row-content small {
     font-size: 0.7em;
-    font-weight: 500;
-}
+    font-weight: 500; }
 
 .tab-content {
-    border-left: 1px solid #ddd;
-    border-right: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
-    padding: 10px;
-}
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 10px; }
 
-.accordion-item {
-    --bs-accordion-active-color: none;
-}
-
-.accordion-header button {
+.accordion .accordion-item {
+  --bs-accordion-active-color: none; }
+  .accordion .accordion-item .accordion-header button {
     font-size: 1.75rem;
-    font-weight: 500;
-}
-
-.accordion-header button span{
-    font-size: 0.7em;
-}
-
+    font-weight: 500; }
+    .accordion .accordion-item .accordion-header button span {
+      font-size: 0.7em; }
 
 .footer {
-    background-color: #d1c4e9;
-    margin: 0px auto;
-    padding: 20px 0px 20px 0px;
-}
+  background-color: #D1C4E9;
+  margin: 0px auto;
+  padding: 20px 0px; }
