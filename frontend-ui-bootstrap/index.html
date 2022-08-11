@@ -64,7 +64,7 @@
             </li>
           </ul>
           <span class="navbar-text">
-            <a href="" data-bs-toggle="modal" data-bs-target="#loginModal">
+            <a href="#loginForm" id="loginBtn">
               <span class="fa fa-sign-in">Login</span>
             </a>
           </span>
@@ -85,7 +85,7 @@
             ></button>
           </div>
           <div class="modal-body">
-            <form action="">
+            <form action="" id="loginForm">
               <div class="row form-row">
                 <div class="form-group col-sm-4">
                   <label for="inputEmail" class="sr-only">Email address</label>
@@ -293,8 +293,7 @@
             <a
               class="btn w-100"
               href="#reserveForm"
-              data-bs-toggle="modal"
-              data-bs-target="#reserveTableModal"
+              id="reserveTableBtn"
               >Reserve Table</a>
             </button>
             
@@ -621,6 +620,40 @@
           carouselControls.querySelector(':scope > span').classList.add('fa-pause');
         }
       });
+    </script>
+
+    <!-- Script for toggling Login  modal -->
+    <script>
+      //get modal
+      const modal = new bootstrap.Modal(document.getElementById('loginModal'), {
+        keyboard: true
+      });
+
+      //get button
+      const btn = document.getElementById('loginBtn');
+
+      //set event listener
+      btn.addEventListener('click', event => {
+        modal.toggle();
+        console.log('login modal toggled');
+      })
+    </script>
+
+    <!-- Script for toggling Reserve table modal -->
+    <script>
+      //get modal
+      const myModal = new bootstrap.Modal(document.getElementById('reserveTableModal'), {
+        keyboard: true
+      });
+
+      //get button
+      const button = document.getElementById('reserveTableBtn');
+
+      //set event listener
+      button.addEventListener('click', event => {
+        myModal.toggle();
+        console.log('reserve table modal toggled');
+      })
     </script>
   </body>
 </html>
