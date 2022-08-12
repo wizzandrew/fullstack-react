@@ -10,6 +10,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
 
     <!-- Bootstrap CSS -->
+    <!-- build:css css/main.css -->
     <link
       rel="stylesheet"
       href="node_modules/bootstrap/dist/css/bootstrap.min.css"
@@ -23,6 +24,8 @@
       href="node_modules/bootstrap-social/bootstrap-social.css"
     />
     <link rel="stylesheet" href="css/styles.css" />
+    <!-- endbuild -->
+
     <title>Ristorante Con Fusion</title>
   </head>
 
@@ -219,15 +222,29 @@
                 <label for="" class="col-form-label col-md-2">Section</label>
                 <div class="btn-group col-md-5 ms-0" role="group">
                   <div class="form-check d-inline-block ps-0">
-                    <input type="radio" class="btn-check" name="sectionOption" id="smk" autocomplete="off" checked data-bs-toggle="input">
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="sectionOption"
+                      id="smk"
+                      autocomplete="off"
+                      checked
+                      data-bs-toggle="input"
+                    />
                     <label class="btn btn-success" for="smk">Non-Smoking</label>
                   </div>
 
                   <div class="form-check d-inline-block ps-0">
-                    <input type="radio" class="btn-check" name="sectionOption" id="nsmk" autocomplete="off" data-bs-toggle="input">
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="sectionOption"
+                      id="nsmk"
+                      autocomplete="off"
+                      data-bs-toggle="input"
+                    />
                     <label class="btn btn-danger" for="nsmk">Smoking</label>
                   </div>
-                  
                 </div>
               </div>
 
@@ -259,7 +276,13 @@
               <!-- Reserve button -->
               <div class="form-group row">
                 <div class="btn-group col-md-2 mt-4 offset-md-9">
-                  <button class="btn btn-secondary me-1" type="button" data-bs-dismiss="modal">Cancel</button>
+                  <button
+                    class="btn btn-secondary me-1"
+                    type="button"
+                    data-bs-dismiss="modal"
+                  >
+                    Cancel
+                  </button>
                   <button class="btn btn-primary" type="submit">Reserve</button>
                 </div>
               </div>
@@ -285,18 +308,16 @@
           </div>
           <div class="d-grid col-12 col-sm-3 align-self-center">
             <!-- Button with a tooltip -->
-            <button 
-            class="btn btn-sm btn-warning p-0"
-            data-bs-toggle="tooltip"
-            data-bs-title="Or Call us at +852 12345678"
-            data-bs-placement="bottom">
-            <a
-              class="btn w-100"
-              href="#reserveForm"
-              id="reserveTableBtn"
-              >Reserve Table</a>
+            <button
+              class="btn btn-sm btn-warning p-0"
+              data-bs-toggle="tooltip"
+              data-bs-title="Or Call us at +852 12345678"
+              data-bs-placement="bottom"
+            >
+              <a class="btn w-100" href="#reserveForm" id="reserveTableBtn"
+                >Reserve Table</a
+              >
             </button>
-            
           </div>
         </div>
       </div>
@@ -332,9 +353,9 @@
             </div>
 
             <!-- Pause/Play Controls -->
-              <button class="btn btn-danger btn-small" id="carouselControls">
-                <span class="fa fa-pause"></span>
-              </button>
+            <button class="btn btn-danger btn-small" id="carouselControls">
+              <span class="fa fa-pause"></span>
+            </button>
 
             <div class="carousel-inner" role="listbox">
               <!-- Carousel item 1-->
@@ -504,7 +525,6 @@
         </div>
       </div>
     </div>
-
 
     <footer class="footer">
       <div class="container">

@@ -9,7 +9,13 @@
     "lite": "lite-server",
     "scss": "node-sass -o css/ css/",
     "watch:scss": "onchange \"css/*.scss\" -- npm run scss",
-    "watch:all": "parallelshell \"npm run watch:scss\" \"npm run lite\""
+    "watch:all": "parallelshell \"npm run watch:scss\" \"npm run lite\"",
+    "clean": "rimraf deploy",
+    "copyfonts": "copyfiles -f node_modules/font-awesome/fonts/* deploy/fonts",
+    "copyjs": "copyfiles -f js/* deploy/js",
+    "imagemin": "imagemin img/* -o deploy/img",
+    "usemin": "usemin contactus.html -d deploy --htmlmin -o deploy/contactus.html && usemin aboutus.html -d deploy --htmlmin -o deploy/aboutus.html && usemin index.html -d deploy --htmlmin -o deploy/index.html",
+    "build": "npm run clean && npm run copyfonts && npm run imagemin && npm run usemin && npm run copyjs"
   },
   "repository": {
     "type": "git",
@@ -18,10 +24,15 @@
   "author": "Andrei Varzar",
   "license": "ISC",
   "devDependencies": {
+    "cssmin": "^0.4.3",
+    "htmlmin": "^0.0.7",
     "lite-server": "^2.6.1",
     "node-sass": "^7.0.1",
     "onchange": "^7.1.0",
-    "parallelshell": "^3.0.1"
+    "parallelshell": "^3.0.1",
+    "rimraf": "^3.0.2",
+    "uglify-js": "^3.16.3",
+    "usemin-cli": "^0.6.0"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.5",
