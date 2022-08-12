@@ -4,10 +4,12 @@
   "description": "package for frontend ui framework with bootstrap course",
   "main": "index.html",
   "scripts": {
-    "start": "npm run lite",
+    "start": "npm run watch:all",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lite": "lite-server",
-    "scss": "node-sass -o css/ css/"
+    "scss": "node-sass -o css/ css/",
+    "watch:scss": "onchange \"css/*.scss\" -- npm run scss",
+    "watch:all": "parallelshell \"npm run watch:scss\" \"npm run lite\""
   },
   "repository": {
     "type": "git",
@@ -16,13 +18,15 @@
   "author": "Andrei Varzar",
   "license": "ISC",
   "devDependencies": {
-    "lite-server": "^2.6.1"
+    "lite-server": "^2.6.1",
+    "node-sass": "^7.0.1",
+    "onchange": "^7.1.0",
+    "parallelshell": "^3.0.1"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.5",
     "bootstrap": "^5.2.0",
     "bootstrap-social": "^5.1.1",
-    "font-awesome": "^4.7.0",
-    "node-sass": "^7.0.1"
+    "font-awesome": "^4.7.0"
   }
 }
