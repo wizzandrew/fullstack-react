@@ -1,4 +1,29 @@
+# ui-bootstrap
 frontend-ui-bootstrap/node_modules
 frontend-ui-bootstrap/package-lock.json
 frontend-ui-bootstrap/deploy
 .vscode
+
+# lib-react
+# dependencies
+frontend-lib-react/confusion/node_modules
+frontend-lib-react/confusion/package-lock.json
+frontend-lib-react/confusion/.pnp
+frontend-lib-react/confusion/.pnp.js
+
+# testing
+frontend-lib-react/confusion/coverage
+
+# production
+frontend-lib-react/confusion/build
+
+# misc
+frontend-lib-react/confusion/.DS_Store
+frontend-lib-react/confusion/.env.local
+frontend-lib-react/confusion/.env.development.local
+frontend-lib-react/confusion/.env.test.local
+frontend-lib-react/confusion/.env.production.local
+
+frontend-lib-react/confusion/npm-debug.log*
+frontend-lib-react/confusion/yarn-debug.log*
+frontend-lib-react/confusion/yarn-error.log*
