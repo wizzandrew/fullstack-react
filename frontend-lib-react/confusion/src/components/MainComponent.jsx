@@ -9,7 +9,7 @@ import { DISHES } from '../shared/dishes';
 import { COMMENTS } from '../shared/comments';
 import { LEADERS } from '../shared/leaders';
 import { PROMOTIONS } from '../shared/promotions';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useParams } from 'react-router-dom';
 
 
 class MainComponent extends Component {
@@ -22,18 +22,8 @@ class MainComponent extends Component {
             comments: COMMENTS,
             promotions: PROMOTIONS,
             leaders: LEADERS
-            // selectedDish: null
         };
     }
-
-    // onDishSelect(dishId) {
-    //     this.setState({
-    //         selectedDish: dishId
-    //     });
-    // }
-
-    // <Menu dishes={this.state.dishes} onClick={(dishId) => { this.onDishSelect(dishId) }} />
-    // <DishDetail dish={this.state.dishes.filter(d => d.id === this.state.selectedDish)[0]} />
 
     render() {
 
@@ -46,6 +36,17 @@ class MainComponent extends Component {
             );
         }
 
+        const DishWithId = () => {
+
+            let params = useParams();
+
+            return (
+                <DishDetail dish={this.state.dishes.filter(d => d.id === parseInt(params.dishId, 10))[0]}
+                    comments={this.state.comments.filter(c => c.dishId === parseInt(params.dishId, 10))}
+                />
+            );
+        }
+
         return (
             <div>
                 <Header />
@@ -53,6 +54,7 @@ class MainComponent extends Component {
                     <Route index element={<HomePage />} />
                     <Route path="/home" element={<HomePage />} />
                     <Route path="/menu" element={<Menu dishes={this.state.dishes} />} />
+                    <Route path='/menu/:dishId' element={<DishWithId />} />
                     <Route path="/contactus" element={<Contact />} />
                 </Routes>
                 <Footer />

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Card, CardBody, CardImg, CardText, CardTitle } from 'reactstrap';
+import { Card, CardBody, CardImg, CardText, CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 function RenderDish({ dish }) {
 
@@ -21,11 +22,11 @@ function RenderDish({ dish }) {
     }
 }
 
-function RenderComments({ dish }) {
+function RenderComments({ comments }) {
 
-    if (dish != null && dish.comments != null) {
+    if (comments != null) {
 
-        let comments = dish.comments.map(com => {
+        let comm = comments.map(com => {
             return (
                 <div>
                     <p>{com.comment}</p>
@@ -38,7 +39,7 @@ function RenderComments({ dish }) {
         return (
             <div>
                 <h4>Comments</h4>
-                {comments}
+                {comm}
             </div>
         )
 
@@ -53,15 +54,26 @@ function RenderComments({ dish }) {
 
 const DishDetail = (props) => {
     const data =
-        <div className="row">
-            <div className="col-12 col-md-5 m-1">
-                <RenderDish dish={props.dish} />
+        <>
+            <div className="row">
+                <Breadcrumb>
+                    <BreadcrumbItem><Link to='/menu'>Menu</Link></BreadcrumbItem>
+                    <BreadcrumbItem active>{props.dish.name}</BreadcrumbItem>
+                </Breadcrumb>
+                <div className="col-12">
+                    <h3>{props.dish.name}</h3>
+                    <hr />
+                </div>
             </div>
-            <div className="col-12 col-md-5 m-1">
-                <RenderComments dish={props.dish} />
+            <div className="row">
+                <div className="col-12 col-md-5 m-1">
+                    <RenderDish dish={props.dish} />
+                </div>
+                <div className="col-12 col-md-5 m-1">
+                    <RenderComments comments={props.comments} />
+                </div>
             </div>
-        </div>
-
+        </>
 
     return (
         <div>
