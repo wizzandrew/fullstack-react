@@ -57,7 +57,7 @@ class MainComponent extends Component {
                     <Route path='/about' element={<About leaders={this.state.leaders} />} />
                     <Route path="/menu" element={<Menu dishes={this.state.dishes} />} />
                     <Route path='/menu/:dishId' element={<DishWithId />} />
-                    <Route path="/contactus" element={<Contact />} />
+                    <Route path="/contact" element={<Contact />} />
                 </Routes>
                 <Footer />
             </div>
