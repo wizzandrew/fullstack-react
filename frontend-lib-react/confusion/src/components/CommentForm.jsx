@@ -32,6 +32,9 @@ export default class CommentForm extends Component {
     handleSubmit(event) {
         console.log("Current State:" + JSON.stringify(this.state));
         alert("Current State:" + JSON.stringify(this.state));
+
+        //redux action creator add comment
+        this.props.addComment(this.props.dishId, this.state.rating, this.state.author, this.state.comment);
         event.preventDefault();
     }
 

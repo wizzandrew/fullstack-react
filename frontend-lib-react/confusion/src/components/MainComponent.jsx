@@ -8,8 +8,10 @@ import Header from './HeaderComponent';
 import Footer from './FooterComponent';
 import { Routes, Route, useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
+import {addComment} from '../redux/ActionCreators';
 
 //redux
+//pure state
 const mapStateToProps = state => {
     return {
         dishes: state.dishes,
@@ -18,6 +20,11 @@ const mapStateToProps = state => {
         leaders: state.leaders
     }
 }
+
+//dispatch managing action creators
+const mapDispatchToProps = (dispatch) => ({
+    addComment: (dishId, rating, author, cpmment) => dispatch(addComment(dishId, rating, author, cpmment))
+});
 
 
 class MainComponent extends Component {
@@ -45,6 +52,7 @@ class MainComponent extends Component {
             return (
                 <DishDetail dish={this.props.dishes.filter(d => d.id === parseInt(params.dishId, 10))[0]}
                     comments={this.props.comments.filter(c => c.dishId === parseInt(params.dishId, 10))}
+                    addComment={this.props.addComment}
                 />
             );
         }
@@ -66,4 +74,4 @@ class MainComponent extends Component {
     }
 }
 
-export default (connect(mapStateToProps)(MainComponent));
+export default (connect(mapStateToProps, mapDispatchToProps)(MainComponent));
