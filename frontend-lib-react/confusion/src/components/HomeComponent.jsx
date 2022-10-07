@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle } from 'reactstrap';
 import Loading from './LoadingComponent';
+import { baseUrl } from '../shared/baseUrl';
 
 function RenderCard({ item, isLoading, errorMessage }) {
     if(isLoading) {
@@ -16,7 +17,7 @@ function RenderCard({ item, isLoading, errorMessage }) {
 
     return (
         <Card>
-            <CardImg src={item.image} alt={item.name} />
+            <CardImg src={baseUrl + item.image} alt={item.name} />
             <CardBody>
                 <CardTitle tag="h5">{item.name}</CardTitle>
                 {item.designation ? <CardSubtitle tag="h6">{item.designation}</CardSubtitle> : null}
@@ -36,7 +37,10 @@ export default function Home(props) {
                         errorMessage={props.dishesErrorMessage}/>
                 </div>
                 <div className="col-12 col-md m-1">
-                    <RenderCard item={props.promotion} />
+                    <RenderCard item={props.promotion} 
+                        isLoading={props.promotionsLoading} 
+                        errorMessage={props.promotionErrorMessage}
+                    />
                 </div>
                 <div className="col-12 col-md m-1">
                     <RenderCard item={props.leader} />
