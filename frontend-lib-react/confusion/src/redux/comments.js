@@ -14,8 +14,6 @@ export const Comments = (state = {
 
         case ActionTypes.ADD_COMMENT:
             let comment = action.payload;
-            comment.id = state.comments.length;                
-            comment.date = new Date().toISOString();
         
            //concat() creates new arr, adds obj and returns the arr
            //push() modifies existing arr by adding obj to its end and returns its length

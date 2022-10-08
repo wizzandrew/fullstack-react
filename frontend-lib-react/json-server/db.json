@@ -201,6 +201,38 @@
       "comment": "It's your birthday, we're gonna party!",
       "author": "25 Cent",
       "date": "2011-12-02T17:57:28.556094Z"
+    },
+    {
+      "dishId": 1,
+      "rating": "4",
+      "author": "Andrei V",
+      "comment": "This is a comment",
+      "date": "2022-10-08T17:34:43.893Z",
+      "id": 20
+    },
+    {
+      "dishId": 3,
+      "rating": "5",
+      "author": "Andrei V",
+      "comment": "This is a comment",
+      "date": "2022-10-08T17:35:54.795Z",
+      "id": 21
+    },
+    {
+      "dishId": 2,
+      "rating": "4",
+      "author": "Andrei V",
+      "comment": "A tasty vadonut!",
+      "date": "2022-10-08T17:49:55.317Z",
+      "id": 22
+    },
+    {
+      "dishId": 3,
+      "rating": "5",
+      "author": "Andrei V",
+      "comment": "New Comment",
+      "date": "2022-10-08T17:54:25.787Z",
+      "id": 23
     }
   ],
   "promotions": [

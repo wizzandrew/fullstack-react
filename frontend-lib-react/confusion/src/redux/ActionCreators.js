@@ -40,15 +40,53 @@ export const addComments = (comments) => ({
 });
 
 
-export const addComment = (dishId, rating, author, comment) => ({
+export const addComment = (comment) => ({
     type: ActionTypes.ADD_COMMENT,
-    payload: {
-        dishId: dishId,
+    payload: comment
+    });
+
+export const postComment = (dishId, rating, author, comment) => (dispatch) => {
+    const newComment = {
+        dishId: dishId, 
         rating: rating,
-        author: author,
+        author: author, 
         comment: comment
     }
-});
+    newComment.date = new Date().toISOString();
+
+    return fetch(baseUrl + 'comments', {
+        method: 'POST',
+        body: JSON.stringify(newComment),
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        credentials: 'same-origin'
+    })
+    .then(res => {
+        if(res.ok) return res;
+
+        // error handling
+        // case: error while communication with server
+        else {
+            let err = new Error('Error ' + res.status + ': ' + res.statusText);
+            err.response = res;
+            throw err;
+        }
+    },
+
+    // error handling
+    // case: server didnt respond
+    error => {
+        let errMessage = new Error(error.message);
+        throw errMessage;
+    })
+        .then(res => res.json())
+        .then(comment => dispatch(addComments(comment)))
+        .catch(err => {
+            console.log('Post comment ' + err.message);
+            alert('Comment couldnt be posted\nError: ' + err.message);
+        });
+}
 
 //dishes
 //-------------------------------------------------------

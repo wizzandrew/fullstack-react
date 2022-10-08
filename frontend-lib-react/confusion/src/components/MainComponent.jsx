@@ -8,7 +8,7 @@ import Header from './HeaderComponent';
 import Footer from './FooterComponent';
 import { Routes, Route, useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
-import {addComment, fetchDishes, fetchComments, fetchPromotions} from '../redux/ActionCreators';
+import {postComment, fetchDishes, fetchComments, fetchPromotions} from '../redux/ActionCreators';
 
 //redux
 //pure state
@@ -23,7 +23,7 @@ const mapStateToProps = state => {
 
 //dispatch managing action creators
 const mapDispatchToProps = (dispatch) => ({
-    addComment: (dishId, rating, author, cpmment) => dispatch(addComment(dishId, rating, author, cpmment)),
+    postComment: (dishId, rating, author, cpmment) => dispatch(postComment(dishId, rating, author, cpmment)),
     fetchDishes: () => {dispatch(fetchDishes())},
     fetchComments: () => {dispatch(fetchComments())},
     fetchPromotions: () => {dispatch(fetchPromotions())},
@@ -72,7 +72,7 @@ class MainComponent extends Component {
                     errorMessage={this.props.dishes.error}
                     comments={this.props.comments.comments.filter(c => c.dishId === parseInt(params.dishId, 10))}
                     commentsErrorMessage={this.props.comments.error}
-                    addComment={this.props.addComment}
+                    postComment={this.props.postComment}
                 />
             );
         }
