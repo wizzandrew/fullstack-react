@@ -6,8 +6,27 @@ import { baseUrl } from '../shared/baseUrl';
 //-------------------------------------------------------
 export const fetchComments = () => (dispatch) => {
     return fetch(baseUrl + 'comments')
+    .then(res => {
+        if(res.ok) return res;
+
+        // error handling
+        // case: error while communication with server
+        else {
+            let err = new Error('Error ' + res.status + ': ' + res.statusText);
+            err.response = res;
+            throw err;
+        }
+    },
+
+    // error handling
+    // case: server didnt respond
+    error => {
+        let errMessage = new Error(error.message);
+        throw errMessage;
+    })
         .then(res => res.json())
         .then(comments => dispatch(addComments(comments)))
+        .catch(err => dispatch(commentsFailed(err.message)));
 }
 
 export const commentsFailed = (errmessage) => ({
@@ -37,8 +56,27 @@ export const fetchDishes = () => (dispatch) => {
     dispatch(dishesLoading(true));
 
     return fetch(baseUrl + 'dishes')
+        .then(res => {
+            if(res.ok) return res;
+
+            // error handling
+            // case: error while communication with server
+            else {
+                let err = new Error('Error ' + res.status + ': ' + res.statusText);
+                err.response = res;
+                throw err;
+            }
+        },
+
+        // error handling
+        // case: server didnt respond
+        error => {
+            let errMessage = new Error(error.message);
+            throw errMessage;
+        })
         .then(res => res.json())
         .then(dishes => dispatch(addDishes(dishes)))
+        .catch(err => dispatch(dishesFailed(err.message)));
 }
 
 export const dishesLoading = () => ({
@@ -62,8 +100,27 @@ export const fetchPromotions = () => (dispatch) => {
     dispatch(promotionsLoading(true));
 
     return fetch(baseUrl + 'promotions')
+    .then(res => {
+        if(res.ok) return res;
+
+        // error handling
+        // case: error while communication with server
+        else {
+            let err = new Error('Error ' + res.status + ': ' + res.statusText);
+            err.response = res;
+            throw err;
+        }
+    },
+
+    // error handling
+    // case: server didnt respond
+    error => {
+        let errMessage = new Error(error.message);
+        throw errMessage;
+    })
         .then(res => res.json())
         .then(promotions => dispatch(addPromotions(promotions)))
+        .catch(err => dispatch(promotionsFailed(err.message)));
 }
 
 export const promotionsLoading = () => ({
