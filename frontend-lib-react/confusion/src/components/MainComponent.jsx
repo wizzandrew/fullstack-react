@@ -6,9 +6,10 @@ import Contact from './ContactComponent';
 import DishDetail from './DishDetailComponent';
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
-import { Routes, Route, useParams } from 'react-router-dom';
+import { Routes, Route, useParams, useLocation } from 'react-router-dom';
 import { connect } from 'react-redux';
 import {postComment, fetchDishes, fetchComments, fetchPromotions} from '../redux/ActionCreators';
+import {TransitionGroup, CSSTransition} from 'react-transition-group';
 
 //redux
 //pure state
@@ -77,17 +78,33 @@ class MainComponent extends Component {
             );
         }
 
+        
+        const RouterWithAnimaion = () => {
+            //react-router-dom location for react-transition-group animation
+            // <Routes> work without location!!!
+            const location = useLocation();
+
+            return (
+                <TransitionGroup>
+                    <CSSTransition key={location.key} classNames="page" timeout={300}>
+                        <Routes location={location}>
+                        <Route index element={<HomePage />} />
+                        <Route path="/home" element={<HomePage />} />
+                        <Route path='/about' element={<About leaders={this.props.leaders} />} />
+                        <Route path="/menu" element={<Menu dishes={this.props.dishes} />} />
+                        <Route path='/menu/:dishId' element={<DishWithId />} />
+                        <Route path="/contact" element={<Contact />} />
+                        </Routes>
+                    </CSSTransition>
+                </TransitionGroup>    
+            );
+        }
+        
+
         return (
             <div>
                 <Header />
-                <Routes>
-                    <Route index element={<HomePage />} />
-                    <Route path="/home" element={<HomePage />} />
-                    <Route path='/about' element={<About leaders={this.props.leaders} />} />
-                    <Route path="/menu" element={<Menu dishes={this.props.dishes} />} />
-                    <Route path='/menu/:dishId' element={<DishWithId />} />
-                    <Route path="/contact" element={<Contact />} />
-                </Routes>
+                <RouterWithAnimaion />
                 <Footer />
             </div>
         );
