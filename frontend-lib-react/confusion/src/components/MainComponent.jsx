@@ -8,7 +8,7 @@ import Header from './HeaderComponent';
 import Footer from './FooterComponent';
 import { Routes, Route, useParams, useLocation } from 'react-router-dom';
 import { connect } from 'react-redux';
-import {postComment, fetchDishes, fetchComments, fetchPromotions} from '../redux/ActionCreators';
+import {postComment, postFeedback, fetchDishes, fetchComments, fetchPromotions, fetchLeaders} from '../redux/ActionCreators';
 import {TransitionGroup, CSSTransition} from 'react-transition-group';
 
 //redux
@@ -25,9 +25,11 @@ const mapStateToProps = state => {
 //dispatch managing action creators
 const mapDispatchToProps = (dispatch) => ({
     postComment: (dishId, rating, author, cpmment) => dispatch(postComment(dishId, rating, author, cpmment)),
+    postFeedback: (firstname, lastname, telnum, email, agree, contactType, message) => dispatch(postFeedback(firstname, lastname, telnum, email, agree, contactType, message)),
     fetchDishes: () => {dispatch(fetchDishes())},
     fetchComments: () => {dispatch(fetchComments())},
     fetchPromotions: () => {dispatch(fetchPromotions())},
+    fetchLeaders: () => {dispatch(fetchLeaders())}
 });
 
 
@@ -46,6 +48,8 @@ class MainComponent extends Component {
         this.props.fetchComments();
 
         this.props.fetchPromotions();
+
+        this.props.fetchLeaders();
     }
 
     render() {
@@ -58,7 +62,9 @@ class MainComponent extends Component {
                     promotion={this.props.promotions.promotions.filter(p => p.featured)[0]}
                     promotionsLoading={this.props.promotions.isLoading}
                     promotionErrorMessage={this.props.promotions.error}
-                    leader={this.props.leaders.filter(l => l.featured)[0]}
+                    leader={this.props.leaders.leaders.filter(l => l.featured)[0]}
+                    leadersLoading={this.props.leaders.isLoading}
+                    leaderErrorMessage={this.props.leaders.error}
                 />
             );
         }
@@ -93,7 +99,7 @@ class MainComponent extends Component {
                         <Route path='/about' element={<About leaders={this.props.leaders} />} />
                         <Route path="/menu" element={<Menu dishes={this.props.dishes} />} />
                         <Route path='/menu/:dishId' element={<DishWithId />} />
-                        <Route path="/contact" element={<Contact />} />
+                        <Route path="/contact" element={<Contact postFeedback={this.props.postFeedback}/>} />
                         </Routes>
                     </CSSTransition>
                 </TransitionGroup>    

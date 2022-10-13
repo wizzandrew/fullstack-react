@@ -42,6 +42,9 @@ class Contact extends Component {
     handleSubmit(event) {
         console.log("Current State:" + JSON.stringify(this.state));
         alert("Current State:" + JSON.stringify(this.state));
+
+        //redux action creator add feedback
+        this.props.postFeedback(this.state.firstname, this.state.lastname, this.state.telnum, this.state.email, this.state.agree, this.state.contactType, this.state.feedback);
         event.preventDefault();
     }
 

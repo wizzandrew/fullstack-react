@@ -1,6 +1,9 @@
 import React from 'react';
 import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import Loading from './LoadingComponent';
+import { baseUrl } from '../shared/baseUrl';
+import { Fade, Stagger } from 'react-animation-components';
 
 function RenderLeader({ leader }) {
 
@@ -8,7 +11,7 @@ function RenderLeader({ leader }) {
         return (
             <div className="d-flex mb-3">
                 <div className="flex-shrink-0">
-                    <img src={leader.image} alt={leader.name} />
+                    <img src={baseUrl + leader.image} alt={leader.name} />
                 </div>
                 <div className="flex-grow-1 ms-3">
                     <h5>{leader.name}</h5>
@@ -25,11 +28,29 @@ function RenderLeader({ leader }) {
 
 function About(props) {
 
-    const leaders = props.leaders.map((leader) => {
-        return (
-            <RenderLeader leader={leader} />
+    let leaders = '';
+
+    if(props.leaders.isLoading) {
+        leaders = (
+            <Loading />
         );
-    });
+    }
+    else if(props.leaders.error) {
+        leaders = (
+            <h5>{props.leaders.error}</h5>
+        );
+    }
+    else if(props.leaders.leaders.length > 0) {
+        leaders = props.leaders.leaders.map((leader) => {
+            return (
+                // Fade is a part of animation
+                <Fade in>
+                    <RenderLeader leader={leader} />
+                </Fade>
+            );
+        });
+    }
+
 
     return (
         <div className="container">
@@ -87,7 +108,10 @@ function About(props) {
                 </div>
                 <div className="col-12">
                     <ul>
-                        {leaders}
+                        {/* Stagger is a part of animation */}
+                        <Stagger in>
+                            {leaders}
+                        </Stagger>
                     </ul>
                 </div>
             </div>

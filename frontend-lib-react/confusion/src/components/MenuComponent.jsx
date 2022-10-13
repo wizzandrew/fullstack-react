@@ -19,35 +19,31 @@ function RenderMenuItem({ dish }) {
 
 const Menu = (props) => {
 
+    let menu;
+
     if(props.dishes.isLoading) {
-        return (
-            <div className="container">
-                <div className="row">
-                    <Loading />
-                </div>
-            </div>
+        menu = (
+            <Loading />
         )
     }
     else if(props.dishes.error) {
-        return (
-            <div className="container">
-                <div className="row">
-                    <h5>{props.dishes.error}</h5>
-                </div>
-            </div>
+        menu = (
+            <h5>{props.dishes.error}</h5>
         )
     }
+    else if(props.dishes.dishes.length > 0) {
+        menu = props.dishes.dishes.map(
+            dish => {
+                return (
+                    <div className="col-12 col-md-5 m-1" key={dish.id}>
+                        <RenderMenuItem dish={dish} />
+                    </div>
+                );
+            }
+        );
+    }
 
-    const menu = props.dishes.dishes.map(
-        dish => {
-            return (
-                <div className="col-12 col-md-5 m-1" key={dish.id}>
-                    <RenderMenuItem dish={dish} />
-                </div>
-            );
-        }
-    );
-
+    
     return (
         <div className='container'>
             <div className="row">
