@@ -4,11 +4,18 @@ import { Link } from 'react-router-dom';
 import CommentForm from './CommentForm';
 import Loading from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
+import { FadeTransform, Fade, Stagger } from 'react-animation-components';
 
 function RenderDish({ dish }) {
 
     if (dish != null) {
         return (
+            // FadeTransform is a part of animation
+            <FadeTransform in transformProps = {
+                {
+                    exitTransform: 'scale(0.5) translateY(-50%)'
+                }
+            }>
             <Card>
                 <CardImg top src={baseUrl + dish.image} alt={dish.name} width="100%" />
                 <CardBody>
@@ -16,6 +23,7 @@ function RenderDish({ dish }) {
                     <CardText>{dish.description}</CardText>
                 </CardBody>
             </Card>
+            </FadeTransform>
         );
     }
     else {
@@ -31,18 +39,26 @@ function RenderComments({ comments, postComment, dishId }) {
 
         let comm = comments.map(com => {
             return (
-                <div>
+                // Fade is a part of animation
+                <Fade in>
+                    <div>
                     <p>{com.comment}</p>
                     {/* <p>--{com.author}, {new Date(com.date).toDateString().substring(4)}</p> */}
                     <p>--{com.author}, {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit' }).format(new Date(Date.parse(com.date)))}</p>
-                </div>
+                    </div>
+                </Fade>
             )
         })
 
         return (
             <div>
                 <h4>Comments</h4>
-                {comm}
+                
+                {/* Stagger is a part of animation */}
+                <Stagger in>
+                    {comm}
+                </Stagger>
+
                 <CommentForm postComment={postComment} dishId={dishId}/>
             </div>
         )

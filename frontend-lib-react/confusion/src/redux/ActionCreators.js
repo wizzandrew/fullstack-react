@@ -81,7 +81,7 @@ export const postComment = (dishId, rating, author, comment) => (dispatch) => {
         throw errMessage;
     })
         .then(res => res.json())
-        .then(comment => dispatch(addComments(comment)))
+        .then(comment => dispatch(addComment(comment)))
         .catch(err => {
             console.log('Post comment ' + err.message);
             alert('Comment couldnt be posted\nError: ' + err.message);
